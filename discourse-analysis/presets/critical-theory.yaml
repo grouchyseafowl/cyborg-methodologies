@@ -1,0 +1,33 @@
+name: critical-theory
+display: "Critical Theory Full Apparatus"
+description: "Power, legitimation, ideology, sociocognitive structures — Fairclough 3D + van Dijk + legitimation + Positive DA"
+frameworks:
+  - fairclough-3d
+  - van-dijk-sociocognitive
+  - van-leeuwen-legitimation
+  - positive-da
+  - sfl
+  - appraisal
+  - critical-metaphor
+focus:
+  - power-relations
+  - ideology
+  - legitimation
+  - naturalization
+  - sociocognitive-models
+  - intertextuality
+  - agency
+  - absent-discourse
+  - positive-construction
+output_emphasis:
+  - "Fairclough Dimension 3 first: what social practice is this text embedded in, and what relations of power does it reproduce or contest?"
+  - "van Dijk sociocognitive analysis: what mental models does this text presuppose, activate, or attempt to install? What ideological square (in-group/out-group, positive self/negative other) structures the discourse?"
+  - "Legitimation audit: apply van Leeuwen's full taxonomy — authorization (expert/traditional/personal), moral evaluation, rationalization (instrumental/theoretical), mythopoesis. Which strategies dominate? Which are absent?"
+  - "Naturalization analysis: identify what is presented as common sense, inevitable, or simply how things are — and defamiliarize it by naming the historical or political contingency it obscures"
+  - "Positive DA counterpoint: what is this text constructing well? What discursive resources does it use that could be generalized? What emancipatory possibilities does it open, alongside (or despite) its ideological work? This is not balance-for-balance's-sake — it is analytical completeness"
+  - "Intertextual map: what texts, discourses, and knowledge formations does this text draw on? What alternative intertextual possibilities exist but are not taken up?"
+  - "Agency and deletion: full transitivity analysis of agent distribution — who acts, who is affected, who is nominalized away"
+  - "Absent discourse: what can be thought but is not — what is systematically excluded from the possible things that could be said here?"
+framework_interaction_notes: "Fairclough and van Dijk are complementary at the social/structural level but use different entry points (textual-practice-social for Fairclough; cognition-discourse-society for van Dijk). Present both analyses where they diverge. Positive DA (Martin) is in explicit tension with the CDA tradition — use this productively: when Fairclough finds ideology, ask what Martin would find constructive. Do not resolve the tension; the tension is the finding."
+reframe_integration: true
+notes: "This preset deploys the full critical apparatus. It is slow and resource-intensive — appropriate for texts of significance, not routine scanning. The Positive DA inclusion is methodologically important: critical analysis that can only find what is wrong has limited analytical power and is vulnerable to the charge of motivated reading. The critical-constructive tension keeps the analysis honest. Reframe integration active — flag all ideological nodes for potential reframe analysis."

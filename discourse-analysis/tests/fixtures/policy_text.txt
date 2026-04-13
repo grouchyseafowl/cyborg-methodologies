@@ -1,0 +1,7 @@
+The implementation of artificial intelligence systems in public services shall be governed by principles of transparency, accountability, and fairness. All automated decision-making processes must be subject to human oversight and review.
+
+Citizens affected by algorithmic decisions will be provided with clear explanations of the factors considered. It was determined that existing frameworks are insufficient to address the unique challenges posed by AI deployment. The assessment was conducted by an independent review panel.
+
+Resources should be allocated to ensure compliance with these requirements. Training programs must be established for all personnel involved in AI governance. Communities could benefit from participatory design processes that center the voices of those most affected by these technologies.
+
+The committee recommended that further consultation be undertaken before final regulations are adopted.

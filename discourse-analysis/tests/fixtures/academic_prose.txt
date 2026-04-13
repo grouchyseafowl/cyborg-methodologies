@@ -1,0 +1,7 @@
+The relationship between discourse and power has been extensively theorized in critical linguistics. Fairclough argued that language is not merely a reflection of social reality but actively constitutes it. This perspective suggests that textual analysis must account for the broader social practices within which texts are produced and consumed.
+
+Several researchers have noted that nominalization serves as a key mechanism for obscuring agency. The transformation of processes into things — what Halliday termed "grammatical metaphor" — enables writers to background human actors and present contested claims as established facts. For instance, "the government decided to cut funding" becomes "the decision to implement funding reductions," deleting both the agent and the evaluative dimension.
+
+It is clear that these patterns are not merely stylistic choices. They reflect and reproduce institutional power relations. However, we should be cautious about deterministic readings. Texts are polysemous, and readers bring their own interpretive resources. Perhaps the most productive approach is one that attends to both the structured regularities and the moments of rupture.
+
+Moreover, the methodological implications are significant. If discourse both constitutes and is constituted by social practice, then purely quantitative approaches will inevitably miss the interpretive dimension. Consequently, researchers must develop analytical frameworks that can move between close textual analysis and broader social contextualization.

@@ -1,0 +1,26 @@
+name: academic
+display: "Academic Writing Analysis"
+description: "Genre move compliance, hedging/boosting patterns, register, epistemic positioning in academic texts"
+frameworks:
+  - swales-moves
+  - hyland-stance
+  - sfl
+  - appraisal
+focus:
+  - genre-moves
+  - hedging
+  - boosting
+  - epistemic-positioning
+  - attribution
+  - register-consistency
+  - intertextuality
+output_emphasis:
+  - "Map Swales IMRD move structure: which moves are present, which are absent, which are condensed or reordered — and what the deviations accomplish or cost"
+  - "Profile hedging: identify hedge types (approximators, shields, plausibility shields, attribution shields) and their distribution — where does the writer over-hedge (weakening claims) vs. under-hedge (overclaiming)?"
+  - "Profile boosting: identify boosters and assess whether they are supported by the evidence presented — flag unsupported boosts"
+  - "Track epistemic positioning: how does the writer position themselves relative to the field's knowledge claims? Challenger, synthesizer, extender, replicator?"
+  - "Attribution patterns: how is prior work cited? Does the text integrate, contrast, or merely list sources?"
+  - "Register consistency: flag lexical register breaks, inappropriate informality, or register shifts that signal uncertainty about disciplinary voice"
+  - "Identify evaluation of prior work: how does the writer assess existing literature, and is the evaluation substantiated?"
+reframe_integration: false
+notes: "For peer review of student work, pair with pedagogical.yaml to translate findings into pedagogically useful feedback. For analyzing published papers or grant proposals, this preset runs full scholarly scrutiny — no grade-adjustment softening."

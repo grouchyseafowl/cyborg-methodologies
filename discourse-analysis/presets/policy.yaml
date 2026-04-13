@@ -1,0 +1,26 @@
+name: policy
+display: "Policy / Institutional Text Analysis"
+description: "Agency distribution, obligation language, backgrounded assumptions in institutional and policy texts"
+frameworks:
+  - fairclough-3d
+  - sfl
+  - van-leeuwen-legitimation
+  - van-dijk-sociocognitive
+focus:
+  - agency
+  - modality
+  - nominalization
+  - presupposition
+  - legitimation
+  - intertextuality
+  - genre-chain
+output_emphasis:
+  - "Map agency distribution via transitivity: who acts, who is acted upon, who is syntactically absent?"
+  - "Track modality shifts across the document — particularly shall→may→should→can progressions and what they accomplish"
+  - "Identify nominalizations that delete human agents: what processes are converted to things, and who disappears in that conversion?"
+  - "Surface backgrounded assumptions: what does the policy presuppose about normal conditions, standard actors, legitimate problems?"
+  - "Identify legitimation strategies: rationalization (instrumental/theoretical), moral evaluation, authorization (expert/traditional/personal), mythopoesis"
+  - "Track intertextuality: what prior texts, frameworks, or authorities does this policy invoke, and which does it silently depart from?"
+  - "Note genre chain position: where does this text sit in the production→distribution→implementation chain, and what constraints does that impose?"
+reframe_integration: false
+notes: "Policy analysis is especially vulnerable to analyst alignment with institutional framing. Actively resist reading policy goals as equivalent to policy effects. When the text constructs a problem definition, ask: what alternative problem definitions does this construction foreclose? Modality audit should cover the full document, not just operative clauses."

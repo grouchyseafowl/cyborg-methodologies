@@ -1,0 +1,26 @@
+name: ethnographic
+display: "Ethnographic / Interview Analysis"
+description: "How people construct experience in talk — narrative structure, positioning, evaluative stance, membership categorization"
+frameworks:
+  - labov-narrative
+  - positioning-theory
+  - appraisal
+  - membership-categorization
+focus:
+  - narrative-structure
+  - self-positioning
+  - other-positioning
+  - evaluative-stance
+  - category-work
+  - reported-speech
+  - footing-shifts
+output_emphasis:
+  - "Identify Labov narrative structure where present (abstract, orientation, complication, evaluation, resolution, coda) — note which elements are absent or truncated"
+  - "Track positioning moves: how does the speaker position themselves, significant others, and the interviewer across the transcript?"
+  - "Map evaluative language clusters — where does appraisal intensify? What events or people attract the heaviest evaluation?"
+  - "Identify membership categorization: what categories does the speaker invoke, resist, or explicitly negotiate?"
+  - "Note reported speech and footing shifts: whose words are being animated, and with what evaluative frame?"
+  - "Surface what DA finds that thematic coding misses: the HOW of meaning-making, not just the WHAT — sequence, hedging, reformulation, resistance"
+  - "Flag narrative silences and topic pivots — what the speaker moves past quickly, returns to unprompted, or cannot finish"
+reframe_integration: false
+notes: "Designed for interview transcripts and ethnographic fieldnote excerpts. Membership categorization analysis is especially sensitive to community-specific norms — flag codings that depend on emic knowledge and ask the researcher to verify. Reported speech analysis attends to whether the speaker aligns with, distances from, or ironizes the voice they animate."

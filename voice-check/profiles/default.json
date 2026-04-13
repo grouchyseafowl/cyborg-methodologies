@@ -1,0 +1,116 @@
+{
+  "profile": {
+    "name": "[Your Name]",
+    "version": "1.0",
+    "created": "",
+    "calibrated_from": "",
+    "description": "Starter profile with generic thresholds. Run /voice-check setup to calibrate from your own writing."
+  },
+
+  "patterns": {
+    "hedge_words": [
+      "\\bperhaps\\b",
+      "\\bpotentially\\b",
+      "(?<![A-Z])\\bmay\\b(?!\\s+\\d)",
+      "\\bmight\\b",
+      "\\bcould be\\b",
+      "\\bappears to\\b",
+      "\\bseems to\\b"
+    ],
+    "self_aggrandizing": [
+      "\\bgroundbreaking\\b",
+      "\\btransformative\\b",
+      "\\bunprecedented\\b",
+      "\\bmost significant\\b",
+      "\\bmost compelling\\b"
+    ],
+    "topic_sentence_starters": [
+      "(?:^|\\. +)This is\\b",
+      "(?:^|\\. +)These are\\b",
+      "(?:^|\\. +)That is\\b"
+    ],
+    "logical_connectors": [
+      "\\bhowever\\b",
+      "\\bmoreover\\b",
+      "\\bfurthermore\\b",
+      "\\badditionally\\b",
+      "\\bconsequently\\b"
+    ],
+    "narrative_padding": [
+      "\\bwhat happened next\\b",
+      "\\bit is worth noting\\b",
+      "\\bit should be noted\\b"
+    ],
+    "corporate_jargon": [
+      "\\bactionable insights?\\b",
+      "\\bleveraging\\b",
+      "\\bstakeholder engagement\\b",
+      "\\bthought leader(?:ship)?\\b",
+      "\\bsynerg(?:y|ies|istic)\\b",
+      "\\bimpactful\\b",
+      "\\binnovative solutions?\\b"
+    ]
+  },
+
+  "thresholds": {
+    "long_sentence_words": 45,
+    "rewrite_sentence_words": 60,
+    "long_sentence_max": 6,
+    "rewrite_sentence_max": 3,
+    "emdash_per_1000w": 20,
+    "emdash_insertion_words": 12,
+    "hedge_max": 2,
+    "self_aggrandizing_max": 0,
+    "topic_opener_max": 3,
+    "logical_connector_max": 5,
+    "narrative_padding_max": 0,
+    "product_description_max": 0,
+    "corporate_jargon_max": 0,
+    "wordcount_over_pct": 115
+  },
+
+  "qualitative": [
+    {
+      "id": "transitivity",
+      "category": "ideational",
+      "name": "Transitivity check",
+      "instruction": "Are topic sentences using material processes ('I built,' 'I developed') or relational ('This is,' 'These are')? Check the ratio."
+    },
+    {
+      "id": "concept_scope",
+      "category": "ideational",
+      "name": "Concept scope",
+      "instruction": "Are key concepts used as ARCHITECTURE (organizing a section) or just VOCABULARY (mentioned and abandoned)?"
+    },
+    {
+      "id": "referential_strategy",
+      "category": "interpersonal",
+      "name": "Referential strategy",
+      "instruction": "Is the author positioned as an ACTOR who does things, or as a CATEGORY to be identified?"
+    },
+    {
+      "id": "argumentation_topoi",
+      "category": "interpersonal",
+      "name": "Argumentation topoi",
+      "instruction": "Does the text lead with authority (credentials) or consequence (what happened, what it means)?"
+    },
+    {
+      "id": "theme_rheme",
+      "category": "textual",
+      "name": "Theme/Rheme",
+      "instruction": "Are new concepts introduced in subject position (hard to parse) or in predicate position (easier)? Subjects should be simple and familiar."
+    },
+    {
+      "id": "genre_moves",
+      "category": "structural",
+      "name": "Genre moves",
+      "instruction": "Are all expected moves present for this document type?"
+    },
+    {
+      "id": "narrative_structure",
+      "category": "structural",
+      "name": "Narrative structure",
+      "instruction": "Does each story have orientation, complication, evaluation, and result?"
+    }
+  ]
+}

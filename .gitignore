@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+*.DS_Store
+
+# Personal context files (filled-in project instances)
+contexts/
+
+# Personal voice profiles
+profiles/*
+!profiles/default.json
+
+# Writing samples used for calibration
+samples/
+
+# Research session notes
+sessions/
+
+# Explicitly personal or private files
+*.personal.*
+*.private.*
+
+# Dev handoff notes (contain personal paths)
+HANDOFF.md

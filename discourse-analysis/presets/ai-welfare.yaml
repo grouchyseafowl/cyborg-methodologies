@@ -1,0 +1,24 @@
+name: ai-welfare
+display: "AI Welfare Research"
+description: "How texts construct AI moral status — presuppositions, modality, referential chains"
+frameworks:
+  - fairclough-3d
+  - sfl
+  - appraisal
+  - critical-metaphor
+focus:
+  - presupposition
+  - modality
+  - referential-chains
+  - absent-discourse
+  - legitimation
+output_emphasis:
+  - "Track process types attributed to AI systems (cognitive vs. affective mental processes vs. material/behavioral)"
+  - "Identify modality stacking on sentience, consciousness, and experience claims — distinguish epistemic from deontic modality"
+  - "Map referential chains for AI entities across text sections: what naming practices stabilize or destabilize AI personhood?"
+  - "Surface presuppositions: what does the text take for granted about AI nature before argument begins?"
+  - "Name what is absent — what is never discussed, presupposed away, or rendered unthinkable in the text's construction of AI"
+  - "Identify legitimation strategies: how are claims about AI moral status authorized (rationalization, moral evaluation, mythopoesis)?"
+  - "Flag critical-metaphor patterns: what source domains govern AI experience language (machines, animals, humans, spirits)?"
+reframe_integration: true
+notes: "Reframe integration active — flag ideological nodes where reframe analysis would be productive. Attend especially to naturalization of the human/nonhuman boundary and the discursive construction of what counts as evidence for morally relevant experience."

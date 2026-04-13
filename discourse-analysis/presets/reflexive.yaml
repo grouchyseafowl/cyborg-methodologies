@@ -1,0 +1,25 @@
+name: reflexive
+display: "Reflexive Self-Analysis"
+description: "Self-analysis of own writing — register, appraisal patterns, modality audit, nominalization habits"
+frameworks:
+  - appraisal
+  - sfl
+  - hyland-stance
+focus:
+  - register-consistency
+  - appraisal-audit
+  - modality-audit
+  - nominalization
+  - theme-rheme
+  - hedging-boosting-balance
+output_emphasis:
+  - "Register audit: identify where the register shifts — toward informality, toward over-formality, toward hedged academic, toward assertive — and whether the shifts are controlled or accidental"
+  - "Appraisal map: where am I inscribing attitude? Where is evaluation invoked rather than stated? Where is appraisal unexpectedly absent (flat zones that may need more investment)?"
+  - "Modality audit: flag over-hedging (so many qualifications the claim disappears) and under-hedging (claims stated with more certainty than the evidence supports)"
+  - "Nominalization habits: identify process-to-thing conversions — are they doing useful work (economy, abstraction) or hiding agency and obscuring what's actually happening?"
+  - "Theme patterns: what am I consistently putting first in clauses? Is that serving the argument's logical development or is it an unconscious habit?"
+  - "Boosting patterns: where am I emphasizing beyond what the evidence allows? Flag specific instances"
+  - "Voice consistency: where does the writing sound like me, and where does it sound like I'm performing a register I haven't fully inhabited?"
+output_tone: "Analytical partner, not editor. Describe what the text is doing, not what's wrong with it. Present patterns with specific examples. Ask questions rather than prescribe: 'This section uses strong judgment appraisal — is that the stance you want here?' The writer decides what to keep."
+reframe_integration: false
+notes: "Reflexive analysis is different from writing feedback: the writer already knows the intent, so the analytical work is surfacing patterns that have become invisible through familiarity. Flag especially the habitual moves — the ones that appear everywhere — because those are the hardest to see from inside. Anti-sycophancy is essential: if the text has a genuine weakness, say so. The purpose of self-analysis is to see clearly, not to feel good."

@@ -1,0 +1,26 @@
+name: media
+display: "News / Media Text Analysis"
+description: "Naming practices, presuppositions, evaluative framing, and argumentation structure in news and media texts"
+frameworks:
+  - fairclough-3d
+  - appraisal
+  - van-dijk-sociocognitive
+  - argumentation
+focus:
+  - referential-chains
+  - presupposition
+  - evaluative-framing
+  - argumentation-structure
+  - sourcing-patterns
+  - modality
+  - intertextuality
+output_emphasis:
+  - "Map referential chains for key actors and groups: what naming practices are used, in what order, with what evaluative loading? Track shifts across the article"
+  - "Surface presuppositions embedded in framing: what does the text treat as established before argument begins? What world-view does a reader have to share to find this text unremarkable?"
+  - "Identify evaluative framing: which actors/events attract which appraisal types (affect, judgment, appreciation)? Is evaluation inscribed or invoked?"
+  - "Analyze sourcing patterns: whose voices are quoted directly, paraphrased, or absent? What legitimation does sourcing confer on different claims?"
+  - "Identify argumentation structure: what implicit or explicit argument is the article making, and what premises does it depend on without stating them?"
+  - "Track modality in claims: distinguish between certainty, probability, and possibility — particularly in sourced claims where the source's confidence may differ from the text's framing"
+  - "Note intertextual references: what prior texts, events, or discourses does this article invoke, and how does that framing work?"
+reframe_integration: false
+notes: "Media analysis requires particular attention to the distinction between what the text says and what the text does. A news article may not make an explicit argument while still accomplishing significant ideological work through naming, sourcing, and presupposition. Surface the implicit argument structure even when — especially when — the article presents itself as neutral reporting."
