@@ -24,3 +24,8 @@ sessions/
 
 # Dev handoff notes (contain personal paths)
 HANDOFF.md
+
+# Tool artifacts (MemPalace, graphify)
+entities.json
+mempalace.yaml
+graphify-out/

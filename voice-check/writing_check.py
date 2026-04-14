@@ -439,6 +439,19 @@ def calibrate_from_samples(sample_dir: str, output_path: str = None):
     if output_path is None:
         output_path = os.path.join(sample_dir, "voice_profile.json")
 
+    # Extend profile with stylometry fingerprint (requires numpy)
+    try:
+        from stylometry import calibrate_stylometry
+        print("\n  Computing stylometry fingerprint...")
+        stylo_data = calibrate_stylometry(samples, verbose=True)
+        if stylo_data:
+            profile["stylometry"] = stylo_data
+            print(f"  Stylometry: {stylo_data.get('style_notes', '')[:120]}")
+        else:
+            print("  Stylometry: skipped (calibration returned no data).")
+    except ImportError:
+        print("  Stylometry: skipped (stylometry.py not found).", file=sys.stderr)
+
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(profile, f, indent=2, ensure_ascii=False)
 
@@ -1073,6 +1086,66 @@ def format_report(filepath: str, results: dict, flagged_sentences: list) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Learning loop: update profile from revision pair
+# ---------------------------------------------------------------------------
+
+def learn_from_revision(first_draft_path: str, final_draft_path: str, profile_path: str):
+    """
+    Compare an agent first draft to a human-revised final draft.
+    Updates the profile's stylometry fingerprint via exponential moving average.
+    Prints a revision guidance report showing what shifted and in which direction.
+    """
+    try:
+        from stylometry import compute_stylometry, compare_stylometry, update_profile_stylometry
+    except ImportError:
+        print("Error: stylometry.py not found. Cannot run --learn mode.", file=sys.stderr)
+        sys.exit(1)
+
+    profile = load_profile(profile_path)
+
+    if "stylometry" not in profile:
+        print(
+            "Error: Profile has no stylometry section. "
+            "Run --calibrate first to build the voice fingerprint.",
+            file=sys.stderr
+        )
+        sys.exit(1)
+
+    with open(first_draft_path, "r", encoding="utf-8") as f:
+        first_text = f.read()
+    with open(final_draft_path, "r", encoding="utf-8") as f:
+        final_text = f.read()
+
+    first_metrics = compute_stylometry(first_text)
+    final_metrics = compute_stylometry(final_text)
+
+    comparison = compare_stylometry(first_metrics, final_metrics, profile["stylometry"])
+
+    # Print report
+    sep = "\u2550" * 51
+    print(f"\n{sep}")
+    print("  REVISION LEARNING REPORT")
+    print(sep)
+    print(f"\n  First draft:  {os.path.basename(first_draft_path)}")
+    print(f"  Final draft:  {os.path.basename(final_draft_path)}")
+    print(f"  Profile:      {os.path.basename(profile_path)}")
+    print(f"\n{comparison['summary']}")
+
+    # Update and save profile
+    updated = update_profile_stylometry(profile, first_metrics, final_metrics)
+
+    with open(profile_path, "w", encoding="utf-8") as f:
+        json.dump(updated, f, indent=2, ensure_ascii=False)
+
+    revision_count = updated["stylometry"]["revision_count"]
+    print(f"\n  Profile updated. Revision count: {revision_count}")
+    notes_preview = updated["stylometry"].get("style_notes", "")[:160]
+    if notes_preview:
+        print(f"  Style notes: {notes_preview}...")
+    print()
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1158,7 +1231,26 @@ def main():
         "-o", "--output", type=str, default=None,
         help="Output path for generated profile (used with --calibrate)"
     )
+    parser.add_argument(
+        "--learn", nargs=2, metavar=("FIRST_DRAFT", "FINAL_DRAFT"),
+        help="Compare agent first draft to human-revised final; update profile stylometry"
+    )
     args = parser.parse_args()
+
+    # Learning mode (post-revision profile update)
+    if args.learn:
+        if not args.profile:
+            parser.error("--learn requires --profile to specify which profile to update")
+        first_path, final_path = args.learn
+        for p in (first_path, final_path):
+            if not os.path.isfile(p):
+                print(f"Error: File not found: {p}", file=sys.stderr)
+                sys.exit(1)
+        if not os.path.isfile(args.profile):
+            print(f"Error: Profile not found: {args.profile}", file=sys.stderr)
+            sys.exit(1)
+        learn_from_revision(first_path, final_path, args.profile)
+        return
 
     # Calibration mode
     if args.calibrate:
