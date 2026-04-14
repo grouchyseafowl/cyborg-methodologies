@@ -452,6 +452,32 @@ def calibrate_from_samples(sample_dir: str, output_path: str = None):
     except ImportError:
         print("  Stylometry: skipped (stylometry.py not found).", file=sys.stderr)
 
+    # Extend profile with perplexity baseline (requires mlx_lm)
+    try:
+        from perplexity import calibrate_perplexity
+        print("\n  Computing perplexity baseline...")
+        ppl_data = calibrate_perplexity(samples, verbose=True)
+        if ppl_data:
+            profile["perplexity"] = ppl_data
+            print(f"  Perplexity: {ppl_data.get('style_notes', '')[:120]}")
+        else:
+            print("  Perplexity: skipped (MLX not available or calibration returned no data).")
+    except ImportError:
+        print("  Perplexity: skipped (perplexity.py not found).", file=sys.stderr)
+
+    # Extend profile with embedding centroid (requires fastembed)
+    try:
+        from embeddings import calibrate_embeddings
+        print("\n  Computing embedding centroid...")
+        emb_data = calibrate_embeddings(samples, verbose=True)
+        if emb_data:
+            profile["embeddings"] = emb_data
+            print(f"  Embeddings: {emb_data.get('style_notes', '')[:120]}")
+        else:
+            print("  Embeddings: skipped (fastembed not available or calibration returned no data).")
+    except ImportError:
+        print("  Embeddings: skipped (embeddings.py not found).", file=sys.stderr)
+
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(profile, f, indent=2, ensure_ascii=False)
 
@@ -1092,8 +1118,9 @@ def format_report(filepath: str, results: dict, flagged_sentences: list) -> str:
 def learn_from_revision(first_draft_path: str, final_draft_path: str, profile_path: str):
     """
     Compare an agent first draft to a human-revised final draft.
-    Updates the profile's stylometry fingerprint via exponential moving average.
-    Prints a revision guidance report showing what shifted and in which direction.
+    Updates the profile's stylometry, perplexity, and embedding fingerprints
+    via exponential moving average. Prints a revision guidance report showing
+    what shifted and in which direction.
     """
     try:
         from stylometry import compute_stylometry, compare_stylometry, update_profile_stylometry
@@ -1116,10 +1143,11 @@ def learn_from_revision(first_draft_path: str, final_draft_path: str, profile_pa
     with open(final_draft_path, "r", encoding="utf-8") as f:
         final_text = f.read()
 
-    first_metrics = compute_stylometry(first_text)
-    final_metrics = compute_stylometry(final_text)
+    # --- Stylometry ---
+    first_stylo = compute_stylometry(first_text)
+    final_stylo = compute_stylometry(final_text)
 
-    comparison = compare_stylometry(first_metrics, final_metrics, profile["stylometry"])
+    stylo_comparison = compare_stylometry(first_stylo, final_stylo, profile["stylometry"])
 
     # Print report
     sep = "\u2550" * 51
@@ -1129,11 +1157,40 @@ def learn_from_revision(first_draft_path: str, final_draft_path: str, profile_pa
     print(f"\n  First draft:  {os.path.basename(first_draft_path)}")
     print(f"  Final draft:  {os.path.basename(final_draft_path)}")
     print(f"  Profile:      {os.path.basename(profile_path)}")
-    print(f"\n{comparison['summary']}")
+    print(f"\n  STYLOMETRY")
+    print(f"  {stylo_comparison['summary']}")
 
-    # Update and save profile
-    updated = update_profile_stylometry(profile, first_metrics, final_metrics)
+    updated = update_profile_stylometry(profile, first_stylo, final_stylo)
 
+    # --- Perplexity (optional) ---
+    if "perplexity" in updated:
+        try:
+            from perplexity import compute_perplexity, compare_perplexity, update_profile_perplexity
+            first_ppl = compute_perplexity(first_text)
+            final_ppl = compute_perplexity(final_text)
+            if first_ppl and final_ppl:
+                ppl_comparison = compare_perplexity(first_ppl, final_ppl, updated["perplexity"])
+                print(f"\n  PERPLEXITY")
+                print(f"  {ppl_comparison['summary']}")
+                updated = update_profile_perplexity(updated, first_ppl, final_ppl)
+        except ImportError:
+            pass
+
+    # --- Embeddings (optional) ---
+    if "embeddings" in updated:
+        try:
+            from embeddings import compute_embeddings, compare_embeddings, update_profile_embeddings
+            first_emb = compute_embeddings(first_text)
+            final_emb = compute_embeddings(final_text)
+            if first_emb and final_emb:
+                emb_comparison = compare_embeddings(first_emb, final_emb, updated["embeddings"])
+                print(f"\n  EMBEDDINGS")
+                print(f"  {emb_comparison['summary']}")
+                updated = update_profile_embeddings(updated, first_emb, final_emb)
+        except ImportError:
+            pass
+
+    # Save updated profile
     with open(profile_path, "w", encoding="utf-8") as f:
         json.dump(updated, f, indent=2, ensure_ascii=False)
 
